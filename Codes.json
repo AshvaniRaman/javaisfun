@@ -1,0 +1,17 @@
+[
+  {
+    "id": "d0d9613b-8b0e-440a-b16e-e6d784dd388d",
+    "author": "Welcome",
+    "message": "Here you go ...."
+  },
+  {
+    "id": "e09e6693-0747-4639-acc9-9221b976fce6",
+    "author": "Test",
+    "message": "const CodeForm = document.getElementById('Code-form');\nconst verificationInput = document.getElementById('verification');\nconst CodeList = document.getElementById('Code-list');\nconst alertMessage = document.getElementById('alertMessage');\n\nasync function fetchCodes() {\n  const response = await fetch('/getCodes');\n  const Codes = await response.json();\n  return Codes;\n}\n\nasync function displayCodes() {\n  const Codes = await fetchCodes();\n  CodeList.innerHTML = '';\n  Codes.forEach(Code => {\n    const CodeItem = document.createElement('li');\n    const CodeLink = document.createElement('a');\n    CodeLink.href = `/message/${Code.id}`;\n    CodeLink.textContent = `${Code.author}`;\n    CodeItem.appendChild(CodeLink);\n    CodeList.appendChild(CodeItem);\n  });\n}\n\nCodeForm.addEventListener('submit', async (e) => {\n  e.preventDefault();\n\n  // Get the verification value\n  const verification = verificationInput.value;\n\n  const formData = new FormData(CodeForm);\n  formData.append('verification', verification); // Add verification to form data\n\n  const response = await fetch('/addCode', {\n    method: 'POST',\n    body: JSON.stringify(Object.fromEntries(formData)),\n    headers: { 'Content-Type': 'application/json' },\n  });\n\n  if (response.ok) {\n    alertMessage.textContent = ''; // Clear any previous alert message\n    displayCodes();\n    CodeForm.reset(); // Clear the form\n  } else if (response.status === 403) {\n    alertMessage.textContent = 'Verification failed. Secret word is incorrect. Please try again.';\n  }\n});\n\ndisplayCodes();\n"
+  },
+  {
+    "id": "fdac7604-5c0d-4c8b-be5e-d9c93ae16213",
+    "author": "Ashvani",
+    "message": "Testing"
+  }
+]

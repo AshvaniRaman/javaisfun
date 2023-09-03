@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub-Like Code Saving Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css">
+    <style>
+        body {
+            background-color: #1c1e21;
+            color: #c9d1d9;
+        }
+
+        .subtitle {
+            color: #58a6ff;
+        }
+
+        .label {
+            color: #8b949e;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+        .subject {
+    font-size: 18px;
+    font-weight: bold;
+    color: #58a6ff;
+    margin-bottom: 5px;
+}
+        .card {
+            margin-bottom: 20px;
+            background-color: #272b30;
+            border: 1px solid #444c56; 
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); 
+        }
+
+        .card-header-title {
+            color: #58a6ff;
+        }
+
+        .input,
+        .textarea,
+        .button {
+            background-color: #2d333b;
+            border: 1px solid #444c56;
+            color: #c9d1d9;
+        }
+
+        .input::placeholder,
+        .textarea::placeholder {
+            color: #8b949e;
+        }
+
+        .input:focus,
+        .textarea:focus {
+            border-color: #58a6ff;
+        }
+
+        .has-text-danger {
+            color: #f9826c; 
+        }
+        .content {
+            color: #c8c8c8;
+        }
+        
+    </style>
+</head>
+<body>
+    <nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation" style="background-color: #1c1e21;">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="#">
+                <strong style="color: #c9d1d9; font-size: large;">Ashvani Kumar Private CDN for Source Codes</strong>
+            </a>
+        </div>
+    </nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="columns is-vcentered">
+                <div class="column">
+                   
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title" style="color: #c9d1d9; font-size: 30px;">
+                                Add New Code
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <form id="Code-form">
+                                    <div class="field">
+                                        <label class="label" style="color: #c9d1d9;">Subject:</label>
+                                        <div class="control">
+                                            <input type="text" id="author" name="author" class="input" placeholder="Enter subject" required>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" style="color: #c9d1d9;">Source Code:</label>
+                                        <div class="control">
+                                            <textarea id="message" name="message" rows="4" class="textarea" placeholder="Enter your code" required></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label class="label" style="color: #c9d1d9;">Verification: Enter the secret word</label>
+                                        <div class="control">
+                                            <input type="password" id="verification" name="verification" class="input" placeholder="Enter secret word" required>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="control">
+                                            <button type="submit" class="button is-primary">Add Code</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <p id="alertMessage" class="has-text-danger"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-half">
+                    
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title" style="font-size: 30px; color: #c9d1d9;">
+                                Previous Messages/Codes
+                            </p>
+                        </header>
+                        <div class="card-content">
+                            <div class="content">
+                                <ul id="Code-list"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer" style="background-color: #1c1e21; color: #c9d1d9;">
+        <div class="content has-text-centered">
+            <p>
+                &copy; 2023 Ashvani Kumar. All rights reserved.
+            </p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
